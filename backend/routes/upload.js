@@ -4,7 +4,6 @@ const multer  = require('multer');
 const { parse } = require('csv-parse/sync');
 const { v4: uuidv4 } = require('uuid');
 const { createSession } = require('../services/database');
-const admin = require('../services/firebaseAdmin');
 
 const router = express.Router();
 
