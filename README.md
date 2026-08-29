@@ -15,68 +15,6 @@
 | **Fallback Engine** | Rule-based SQL generator if Gemini fails |
 | **Modern UI** | Glassmorphism dark theme, smooth animations |
 
----
-
-## 🚀 Getting Started in 5 Minutes
-
-### Step 1: Get Your FREE Gemini API Key
-
-1. Go to **https://aistudio.google.com/app/apikey**
-2. Sign in with your Google account
-3. Click **"Create API Key"**
-4. Copy the key (starts with `AIza...`)
-
-> ✅ The free tier gives you **60 requests/minute** — more than enough for this app.
-
----
-
-### Step 2: Set Up the Backend
-
-```bash
-cd backend
-npm install
-cp .env.example .env
-```
-
-Open `.env` and paste your Gemini key:
-```
-GEMINI_API_KEY=AIzaSy...your_key_here
-```
-
-Start the backend:
-```bash
-npm run dev
-```
-
-You should see:
-```
-🚀 BI Dashboard backend running on http://localhost:4000
-   Gemini key: ✅ loaded
-```
-
----
-
-### Step 3: Set Up the Frontend
-
-```bash
-cd frontend
-npm install
-```
-
-Create `.env.local`:
-```
-NEXT_PUBLIC_API_URL=http://localhost:4000
-```
-
-Start the frontend:
-```bash
-npm run dev
-```
-
-Open **http://localhost:3000** 🎉
-
----
-
 ## 🧪 Test with Sample Data
 
 A sample CSV is included: `sample_sales_data.csv`
@@ -158,60 +96,8 @@ bi-dashboard/
 └── sample_sales_data.csv       # Test dataset
 ```
 
----
-
-## 🎯 Evaluation Criteria Coverage
-
-### Accuracy (40%)
-- ✅ Schema-injected system prompt prevents hallucinated column names
-- ✅ SQL validator blocks non-SELECT queries
-- ✅ `canAnswer: false` returned when data is unavailable
-- ✅ SQL retry on execution failure
-
-### Aesthetics & UX (30%)
-- ✅ Glassmorphism dark UI with Syne + DM Sans fonts
-- ✅ Shimmer skeleton loading state
-- ✅ Hover tooltips on all charts
-- ✅ Smooth CSS animations
-
-### Innovation (30%)
-- ✅ Schema-aware RAG (schema injected as context)
-- ✅ Multi-turn conversation history (last 4 turns included in prompt)
-- ✅ Dual-engine: Gemini + rule-based fallback
-- ✅ Hallucination guard with explicit rejection
-
-### Bonus (30%)
-- ✅ Conversational follow-ups (history-aware)
-- ✅ CSV upload (fully data-agnostic)
-
----
-
-## 🔧 Troubleshooting
-
-| Issue | Fix |
-|---|---|
-| `GEMINI_API_KEY missing` | Add key to `backend/.env` |
-| `Session not found` | Re-upload CSV (sessions are in-memory) |
-| `CORS error` | Check `FRONTEND_URL` in `backend/.env` |
-| Chart shows no data | Try rephrasing: "Show revenue by region as bar chart" |
-| Port conflict | Change PORT in `.env` and `NEXT_PUBLIC_API_URL` |
-
----
 
 ## 🚢 Deployment (Vercel + Railway)
-
-**Backend → Railway:**
-```bash
-# In Railway dashboard, add env var: GEMINI_API_KEY
-# Set FRONTEND_URL to your Vercel URL
-railway up
-```
-
-**Frontend → Vercel:**
-```bash
-# Add env var: NEXT_PUBLIC_API_URL = https://your-railway-url.up.railway.app
-vercel deploy
-```
 
 ---
 
